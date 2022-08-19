@@ -1,0 +1,71 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: cimg/ruby:{{ cat .ruby-version }}
+        environment:
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: $PGUSER
+      - image: circleci/postgres:{{ grep postgres .tool-versions | awk '{ print $NF }' }}
+        environment:
+          POSTGRES_USER: $PGUSER
+          POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+          POSTGRES_DB: $POSTGRES_DB
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - ${APP_NAME}-{{ checksum "Gemfile.lock" }}
+            - ${APP_NAME}-
+      - run:
+          name: Configure Bundler
+          command: |
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            gem install bundler
+      - run:
+          name: Install dependencies
+          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - run: sudo apt install -y postgresql-client || true
+      - save_cache:
+          key: ${APP_NAME}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: Database Setup
+          command: bundle exec rails db:create db:schema:load db:migrate
+      - run:
+          name: Tests
+          command: bundle exec rspec spec --format progress
+  rubocop:
+    docker:
+      - image: cimg/ruby:{{ cat .ruby-version }}
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - ${APP_NAME}-{{ checksum "Gemfile.lock" }}
+            - ${APP_NAME}-
+      - run:
+          name: Configure Bundler
+          command: |
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            gem install bundler
+      - run:
+          name: Install dependencies
+          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - save_cache:
+          key: ${APP_NAME}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: Assure no violations
+          command: bundle exec rubocop --config .rubocop.yml --fail-level refactor
+workflows:
+  version: 2
+  build:
+    jobs:
+      - test
+      - rubocop
