@@ -15,6 +15,7 @@ gem 'webpacker'
 gem 'bootsnap', require: false
 
 group :development, :test do
+  gem 'debug'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'rubocop-rails'
@@ -25,6 +26,11 @@ group :development do
   gem 'annotate'
   gem 'listen', '~> 3.3'
   gem 'spring'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'factory_bot'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
