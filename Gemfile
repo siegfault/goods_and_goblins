@@ -32,4 +32,5 @@ end
 group :test do
   gem 'capybara'
   gem 'factory_bot'
+  gem 'shoulda-matchers'
 end
