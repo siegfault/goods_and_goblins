@@ -1,0 +1,6 @@
+<%= form_with model: @mine, url: [@mine.event, @mine] do |f| %>
+  <%= f.collection_select(:mineral_id, Mineral.ordered.all, :id, :name) %>
+  <%= f.select(:column, %w[left middle right]) %>
+  <%= f.select(:scale, (1..5).map { _1 * 10 }) %>
+  <%= f.button 'Create' %>
+<% end %>

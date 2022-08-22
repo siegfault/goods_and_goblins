@@ -1,0 +1,5 @@
+<%= form_with model: @event, url: [@event.event_type, @event] do |f| %>
+  <%= f.date_field(:started_on) %>
+  <%= f.date_field(:ended_on) %>
+  <%= f.button 'Create' %>
+<% end %>

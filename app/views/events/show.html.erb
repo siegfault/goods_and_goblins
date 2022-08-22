@@ -1,0 +1,12 @@
+<%= @event.started_on %>
+<%= @event.ended_on %>
+
+<%= link_to 'Create New Mine', new_event_mine_path(@event) %>
+
+<ul>
+  <% @event.mines.each do |mine| %>
+    <li>
+      <%= render mine %>
+    </li>
+  <% end %>
+</ul>
