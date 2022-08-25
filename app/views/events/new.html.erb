@@ -1,5 +1,13 @@
+<h2>New Event</h2>
+
 <%= form_with model: @event, url: [@event.event_type, @event] do |f| %>
-  <%= f.date_field(:started_on) %>
-  <%= f.date_field(:ended_on) %>
+  <div class='input-group'>
+    <%= f.label(:started_on) %>
+    <%= f.date_field(:started_on, required: true) %>
+  </div>
+  <div class='input-group'>
+    <%= f.label(:ended_on) %>
+    <%= f.date_field(:ended_on, required: true) %>
+  </div>
   <%= f.button 'Create' %>
 <% end %>

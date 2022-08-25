@@ -1,12 +1,18 @@
-<%= @event.started_on %>
-<%= @event.ended_on %>
+<h2>
+  <%= link_to(@event.event_type.name, @event.event_type) %> from <%= @event.started_on %> to <%= @event.ended_on %>
+</h2>
 
-<%= link_to 'Create New Mine', new_event_mine_path(@event) %>
+<h3>
+  Mines
+  <%= create_badge(new_event_mine_path(@event)) %>
+</h3>
 
-<ul>
-  <% @event.mines.each do |mine| %>
-    <li>
+<% if @event.mines.any? %>
+  <div class="container text-center">
+    <% @event.mines.each do |mine| %>
       <%= render mine %>
-    </li>
-  <% end %>
-</ul>
+    <% end %>
+  </div>
+<% else %>
+  No Mines
+<% end %>

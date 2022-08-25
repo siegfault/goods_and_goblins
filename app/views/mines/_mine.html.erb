@@ -1,1 +1,11 @@
-<%= mine.mineral.name.capitalize %>
+<div class='row'>
+  <div class="col <%= mine_card_offset(mine) %>">
+    <div class='card'>
+      <%# <img src='...' class='card-img-top' alt='...'> %>
+      <div class='card-body'>
+        <h5 class='card-title'><%= mine.mineral.name.capitalize %></h5>
+        <p class='card-text'><%=mine.scale %></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,10 +6,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby File.read('.ruby-version').strip
 
 gem 'bootsnap', require: false
+gem 'bootstrap'
+gem 'font-awesome-sass'
 gem 'importmap-rails'
 gem 'pg'
 gem 'puma'
 gem 'rails', github: 'rails/rails', branch: 'main'
+gem 'sassc-ruby'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'

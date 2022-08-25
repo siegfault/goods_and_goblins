@@ -1,0 +1,11 @@
+<tr>
+  <th scope='rpw'>
+    <%= event.id %>
+  </th>
+  <td>
+    <%= link_to(event.started_on, event_path(event)) %>
+  </td>
+  <td>
+    <%= link_to(event.ended_on, event_path(event)) %>
+  </td>
+</tr>

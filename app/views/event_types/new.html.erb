@@ -1,4 +1,9 @@
+<h2>New Event Type</h2>
+
 <%= form_with model: @event_type do |f| %>
-  <%= f.text_field(:name) %>
-  <%= f.button 'Create' %>
+  <div class='input-group'>
+    <%= f.label(:name) %>
+    <%= f.text_field(:name, required: true) %>
+  </div>
+  <%= f.button 'Create', class: 'btn btn-primary'%>
 <% end %>
