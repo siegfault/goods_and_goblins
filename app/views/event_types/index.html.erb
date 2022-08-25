@@ -1,3 +1,20 @@
-<%= render(@event_types) || 'No Event Types' %>
+<h2>
+  Event Types
+  <%= create_badge(new_event_type_path) %>
+</h2>
 
-<%= link_to 'Create New Event Type', new_event_type_path %>
+<% if @event_types.any? %>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th scope='col'>ID</th>
+        <th scope='col'>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @event_types %>
+    </tbody>
+  </table>
+<% else %>
+  No Event Types
+<% end %>

@@ -1,3 +1,21 @@
-<%= @event_type.name %>
-<%= render @event_type.events || 'No Events' %>
-<%= link_to 'Create New Event', new_event_type_event_path(@event_type) %>
+<h2>
+  Events
+  <%= create_badge(new_event_type_event_path(@event_type)) %>
+</h2>
+
+<% if @event_type.events.any? %>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th scope='col'>ID</th>
+        <th scope='col'>Started On</th>
+        <th scope='col'>Ended On</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @event_type.events %>
+    </tbody>
+  </table>
+<% else %>
+  No Events
+<% end %>

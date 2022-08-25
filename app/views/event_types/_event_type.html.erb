@@ -1,3 +1,8 @@
-<div>
-  <%= link_to(event_type.name, event_type_path(event_type)) %>
-</div>
+<tr>
+  <th scope='rpw'>
+    <%= event_type.id %>
+  </th>
+  <td>
+    <%= link_to(event_type.name, event_type_path(event_type)) %>
+  </td>
+</tr>
