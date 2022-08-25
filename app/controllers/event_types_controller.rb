@@ -15,7 +15,7 @@ class EventTypesController < ApplicationController
     if @event_type.save
       redirect_to @event_type
     else
-      render :show
+      render :new
     end
   end
 
