@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 2b01f332c6f4f56c8d3f3e680890642bd4ea3e16
+  revision: fcac1c4c07ec0846e0c6c08a7a4d0021333f51d6
   branch: main
   specs:
     actioncable (7.1.0.alpha)
@@ -87,6 +87,7 @@ GIT
     railties (7.1.0.alpha)
       actionpack (= 7.1.0.alpha)
       activesupport (= 7.1.0.alpha)
+      method_source
       rake (>= 12.2)
       thor (~> 1.0)
       zeitwerk (~> 2.6)
@@ -154,6 +155,7 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
     matrix (0.4.2)
+    method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.5.4)
