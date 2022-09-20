@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 2b01f332c6f4f56c8d3f3e680890642bd4ea3e16
+  revision: fd7c7733870b780dee5b66e5c0922dd9ad078556
   branch: main
   specs:
     actioncable (7.1.0.alpha)
@@ -32,7 +32,7 @@ GIT
     actionpack (7.1.0.alpha)
       actionview (= 7.1.0.alpha)
       activesupport (= 7.1.0.alpha)
-      rack (~> 2.0, >= 2.2.0)
+      rack (~> 2.0, >= 2.2.4)
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.2.0)
@@ -87,6 +87,7 @@ GIT
     railties (7.1.0.alpha)
       actionpack (= 7.1.0.alpha)
       activesupport (= 7.1.0.alpha)
+      method_source
       rake (>= 12.2)
       thor (~> 1.0)
       zeitwerk (~> 2.6)
@@ -119,7 +120,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     concurrent-ruby (1.1.10)
-    connection_pool (2.2.5)
+    connection_pool (2.3.0)
     crass (1.0.6)
     debug (1.6.2)
       irb (>= 1.3.6)
@@ -147,13 +148,14 @@ GEM
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.18.0)
+    loofah (2.19.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
     matrix (0.4.2)
+    method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.5.4)
