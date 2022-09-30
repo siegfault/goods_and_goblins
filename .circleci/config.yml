@@ -16,8 +16,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - ${APP_NAME}-{{ checksum "Gemfile.lock" }}
-            - ${APP_NAME}-
+            - v1-{{ checksum "Gemfile.lock" }}
+            - v1-
       - run:
           name: Configure Bundler
           command: |
@@ -29,7 +29,7 @@ jobs:
           command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
       - run: sudo apt install -y postgresql-client || true
       - save_cache:
-          key: ${APP_NAME}-{{ checksum "Gemfile.lock" }}
+          key: v1-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
       - run:
@@ -45,8 +45,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - ${APP_NAME}-{{ checksum "Gemfile.lock" }}
-            - ${APP_NAME}-
+            - v1-{{ checksum "Gemfile.lock" }}
+            - v1-
       - run:
           name: Configure Bundler
           command: |
@@ -57,7 +57,7 @@ jobs:
           name: Install dependencies
           command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
       - save_cache:
-          key: ${APP_NAME}-{{ checksum "Gemfile.lock" }}
+          key: v1-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
       - run:
