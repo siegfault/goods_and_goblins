@@ -12,7 +12,7 @@ RSpec.describe 'Mines', type: :system do
 
   it 'creating a new mine' do # rubocop:todo RSpec/ExampleLength
     visit event_path(event)
-    click_on 'Create New Mine'
+    find(:css, 'i.fa-circle-plus').find(:xpath, './/..').click
     select(jade.name, from: :mine_mineral_id).select_option
     select(:left, from: :mine_column).select_option
     select(20, from: :mine_scale).select_option

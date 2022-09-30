@@ -12,7 +12,7 @@ RSpec.describe 'Events', type: :system do
 
   it 'creating a new event' do # rubocop:disable Rspec/ExampleLength
     visit event_type_path(event_type)
-    click_on 'Create New Event'
+    find(:css, 'i.fa-circle-plus').find(:xpath, './/..').click
     fill_in 'event[started_on]', with: '2020-02-02'
     fill_in 'event[ended_on]', with: '2020-02-02'
     click_on 'Create'

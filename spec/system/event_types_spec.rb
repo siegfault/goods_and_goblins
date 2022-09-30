@@ -17,7 +17,7 @@ RSpec.describe 'EventTypes', type: :system do
 
   it 'creating a new event type' do
     visit event_types_path
-    click_on 'Create New Event Type'
+    find(:css, 'i.fa-circle-plus').find(:xpath, './/..').click
     fill_in 'event_type[name]', with: 'Test Type'
     click_on 'Create'
 

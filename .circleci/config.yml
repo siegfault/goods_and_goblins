@@ -6,18 +6,18 @@ jobs:
         environment:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
-          PGUSER: $PGUSER
+          PGUSER: goods_and_goblins
       - image: circleci/postgres:12.4
         environment:
-          POSTGRES_USER: $PGUSER
+          POSTGRES_USER: goods_and_goblins
           POSTGRES_PASSWORD: $POSTGRES_PASSWORD
-          POSTGRES_DB: $POSTGRES_DB
+          POSTGRES_DB: goods_and_goblins_test
     steps:
       - checkout
       - restore_cache:
           keys:
-            - ${APP_NAME}-{{ checksum "Gemfile.lock" }}
-            - ${APP_NAME}-
+            - v1-{{ checksum "Gemfile.lock" }}
+            - v1-
       - run:
           name: Configure Bundler
           command: |
@@ -29,7 +29,7 @@ jobs:
           command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
       - run: sudo apt install -y postgresql-client || true
       - save_cache:
-          key: ${APP_NAME}-{{ checksum "Gemfile.lock" }}
+          key: v1-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
       - run:
@@ -45,8 +45,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - ${APP_NAME}-{{ checksum "Gemfile.lock" }}
-            - ${APP_NAME}-
+            - v1-{{ checksum "Gemfile.lock" }}
+            - v1-
       - run:
           name: Configure Bundler
           command: |
@@ -57,7 +57,7 @@ jobs:
           name: Install dependencies
           command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
       - save_cache:
-          key: ${APP_NAME}-{{ checksum "Gemfile.lock" }}
+          key: v1-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
       - run:
