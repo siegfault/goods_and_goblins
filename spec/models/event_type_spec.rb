@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe EventType, type: :model do
+RSpec.describe EventType do
   let(:event_type) { build(:event_type) }
 
   describe 'relationships' do

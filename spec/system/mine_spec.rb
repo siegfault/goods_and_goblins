@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Mines', type: :system do
+RSpec.describe 'Mines' do
   before do
     driven_by(:rack_test)
   end
