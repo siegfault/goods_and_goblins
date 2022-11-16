@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Events', type: :system do
+RSpec.describe 'Events' do
   before do
     driven_by(:rack_test)
   end
@@ -10,7 +10,7 @@ RSpec.describe 'Events', type: :system do
   let(:event_type) { create(:event_type) }
   let(:event) { create(:event, event_type:) }
 
-  it 'creating a new event' do # rubocop:disable Rspec/ExampleLength
+  it 'creating a new event' do # rubocop:disable RSpec/ExampleLength
     visit event_type_path(event_type)
     find(:css, 'i.fa-circle-plus').find(:xpath, './/..').click
     fill_in 'event[started_on]', with: '2020-02-02'

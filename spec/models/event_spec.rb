@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Event, type: :model do
+RSpec.describe Event do
   let(:event) { described_class.new }
 
   describe 'relationships' do

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Mine, type: :model do
+RSpec.describe Mine do
   let(:mine) { described_class.new }
 
   describe 'relationships' do

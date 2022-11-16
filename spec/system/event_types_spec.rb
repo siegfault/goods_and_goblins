@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'EventTypes', type: :system do
+RSpec.describe 'EventTypes' do
   before do
     driven_by(:rack_test)
   end

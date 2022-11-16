@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Mineral, type: :model do
+RSpec.describe Mineral do
   describe 'validations' do
     it do
       expect(described_class.new).to validate_presence_of(:name)
