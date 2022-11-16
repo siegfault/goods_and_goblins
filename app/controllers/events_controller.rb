@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
+  def show
+    @event = Event.find(params[:id])
+  end
+
   def new
     @event = event_type.events.new
   end
@@ -13,10 +17,6 @@ class EventsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-    @event = Event.find(params[:id])
   end
 
   private

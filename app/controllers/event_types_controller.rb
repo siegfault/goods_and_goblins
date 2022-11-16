@@ -5,6 +5,10 @@ class EventTypesController < ApplicationController
     @event_types = EventType.ordered
   end
 
+  def show
+    @event_type = EventType.find(params[:id])
+  end
+
   def new
     @event_type = EventType.new
   end
@@ -17,9 +21,5 @@ class EventTypesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-    @event_type = EventType.find(params[:id])
   end
 end
