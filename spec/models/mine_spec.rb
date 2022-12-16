@@ -20,11 +20,15 @@ RSpec.describe Mine do
       expect(mine).to validate_inclusion_of(:column).in_array(%w[left middle right])
     end
 
-    xit do
+    it do
+      pending 'this fails, specifying that -1 is a valid value, though a specific test for that correctly disallows -1'
+
       expect(mine).to validate_numericality_of(:position).is_greater_than_or_equal_to(0)
     end
 
-    xit do
+    it do
+      pending 'this fails, specifying that -1 is a valid value, though a specific test for that correctly disallows -1'
+
       expect(mine).to validate_numericality_of(:section).is_greater_than_or_equal_to(0)
     end
 
