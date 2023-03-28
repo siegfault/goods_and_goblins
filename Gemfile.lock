@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 99096b88ae7a7c9019f2cbcf867e29ba42768e65
+  revision: 784f1c75a08b3b3611b4f100a890c26ace493138
   branch: main
   specs:
     actioncable (7.1.0.alpha)
@@ -65,7 +65,6 @@ GIT
       activerecord (= 7.1.0.alpha)
       activesupport (= 7.1.0.alpha)
       marcel (~> 1.0)
-      mini_mime (>= 1.1.0)
     activesupport (7.1.0.alpha)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       connection_pool (>= 2.2.5)
@@ -204,7 +203,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.7.0)
-    reline (0.3.2)
+    reline (0.3.3)
       io-console (~> 0.5)
     rexml (3.2.5)
     rspec-core (3.11.0)
